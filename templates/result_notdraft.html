@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+   <body>
+      <table border=1>
+         {% set i = namespace(value = 1) %}
+          
+         {% for key, value in result.items() %}
+            <tr>
+               <th> {{ key }} </th>
+               <td>  {{ value }}      
+                {% set i.value = i.value * value|int  %}</td>
+            </tr>
+         {% endfor %}
+         <tr><th>total</th><td> {{ i.value }} </td></tr>
+      </table>
+
+        {% set count = namespace(value=1) %}
+        {% for i in [1,2,3,4,5] %}
+            {% set count.value = count.value + 1 %}
+        {% endfor %}
+        {{ count.value }}
+   </body>
+</html>

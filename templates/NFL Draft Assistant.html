@@ -1,0 +1,60 @@
+<html>
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+      </script>
+      <script type=text/javascript>
+         $(function() {
+            $('button').click(function() {
+               $.ajax({
+                     url: '/result',
+                     data: $('form').serialize(),
+                     type: 'POST',
+                     success: function(response) {
+                        console.log(response);
+                        $("#result").text(response.result);
+                     },
+                     error: function(error) {
+                        console.log(error);
+                     }
+               });
+            });
+         });
+       </script>
+   </head>
+   <body>
+      <style>
+         body {
+           background-image: url('bg\background.jpg');
+           background-repeat: no-repeat;
+         }
+         </style>
+      <table align="center">
+         <tr><td colspan="2" align="center"><H1>NFL Draft Assistant</H1></td></tr>
+         <tr>
+            <td>   
+               <form action = "/result" method = "POST">
+                  <p>Height <input type = "number" name = "Ht_cm" /> cm.</p>
+                  <p>Weight <input type = "number" name = "Wt_kg" /> kg.</p>
+                  <p>40yard Run <input type = "number" name = "40yd" /> second</p>
+                  <p>Vertical Jump <input type = "number" name = "Vertical" /></p>
+                  <p>Bench Press <input type = "number" name = "Bench" /> Times</p>
+                  <p>Broad Jump <input type = "number" name = "Broad Jump" /> </p>
+                  <p>3Cone <input type = "number" name = "Wt_kg" /> seond</p>
+                  <p>Shuttle <input type = "number" name = "Shuttle" /> seond</p>
+                  <p>No. of Game Play in college <input type = "number" name = "G" /> Games</p>
+                  <p>No. of Completed Pass <input type = "number" name = "Cmp" /></p>
+                  <p>No. of Pass Attemp <input type = "number" name = "Att" /> kg.</p>
+                  <p>Pass completed percentage <input type = "number" name = "Pct" /></p>
+                  <p>Pass yard <input type = "number" name = "Yds" /> kg.</p>
+                  <p>Pass yard per Attemp <input type = "number" name = "Y/A" /> kg.</p>
+                  <p>AY/A <input type = "number" name = "AY/A" /> </p>
+                  <p>Pass TD <input type = "number" name = "TD" /> </p>
+                  <p>Pass Int <input type = "number" name = "Int" /> </p>
+                  <p>Rating <input type = "number" name = "Rate" /> </p>
+                  <p><button id="button" class="btn btn-lg btn-primary btn-block" type="button">Submit</button></p>
+               </form>
+            </td>
+         </tr>
+      </table>
+   </body>
+</html>
